@@ -8,15 +8,38 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="<%= Routes.static_path(@conn, "/css/bootstrap.min.css") %>" rel="stylesheet" />
-    <!-- Material Design Bootstrap -->
-    <link href="<%= Routes.static_path(@conn, "/css/mdb.min.css") %>" rel="stylesheet" />
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
 
   </head>
   <body>
+
+
+<!--Card-->
+<div class="card m-5" style="width: 22rem;">
+
+  <!--Card image-->
+  <div class="view overlay">
+    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%287%29.jpg" class="img-fluid" alt="">
+    <a href="#">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!--Card content-->
+  <div class="card-body">
+    <!--Title-->
+    <h4 class="card-title">Card title</h4>
+    <!--Text-->
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Button</a>
+  </div>
+
+</div>
+<!--/.Card-->
+
+
+
     <header>
       <section class="container">
         <nav role="navigation">
@@ -34,6 +57,21 @@
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
     </main>
+
+
+    <!-- Start your project here-->
+    <div style="height: 100vh">
+      <div class="flex-center flex-column">
+
+        <h1 class="text-hide animated fadeIn mb-4" style="background-image: url('https://mdbootstrap.com/img/logo/mdb-transparent-250px.png'); width: 250px; height: 90px;">MDBootstrap</h1>
+        <h5 class="animated fadeIn mb-3">Thank you for using our product. We're glad you're with us.</h5>
+
+        <p class="animated fadeIn text-muted">MDB Team</p>
+      </div>
+    </div>
+    <!-- /Start your project here-->
+
+
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

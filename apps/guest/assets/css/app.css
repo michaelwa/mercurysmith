@@ -1,3 +1,10 @@
 /* This file is for your main application css. */
 
+/*  Bootstrap core CSS */
+@import "./bootstrap.min.css";
+
+/* Material Design Bootstrap */
+@import "./mdb.min.css";
+
+/* Your custom styles (optional) */
 @import "./phoenix.css";
