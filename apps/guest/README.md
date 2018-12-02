@@ -18,3 +18,19 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+
+## General
+
+This is a guest application with two primary use cases. 
+
+  * On boarding 
+  * Login 
+
+There are two roles of people to on board.
+
+  * Vendors
+  * Clients for the vendors
+
+This portion of the application should be able to contain some basic content management functionality 
+in order to all quick changes to the marketing. 
