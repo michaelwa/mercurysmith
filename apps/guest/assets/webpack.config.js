@@ -1,7 +1,7 @@
+// const Webpack = require('webpack');
 const path = require('path');
 const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -33,32 +33,37 @@ module.exports = (env, options) => ({
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
-      {
-        test: /\.(ttf|eot|woff|woff2)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "fonts/[name].[ext]",
-          },
-        },
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: true, // webpack@1.x
-              disable: true, // webpack@2.x and newer
-            },
-          },
-        ],
-      }
+      // {
+      //   test: /\.(ttf|eot|woff|woff2)$/,
+      //   use: {
+      //     loader: "file-loader",
+      //     options: {
+      //       name: "fonts/[name].[ext]",
+      //     },
+      //   },
+      // },
+      // {
+      //   test: /\.(gif|png|jpe?g|svg)$/i,
+      //   use: [
+      //     'file-loader',
+      //     {
+      //       loader: 'image-webpack-loader',
+      //       options: {
+      //         bypassOnDebug: true, // webpack@1.x
+      //         disable: true, // webpack@2.x and newer
+      //       },
+      //     },
+      //   ],
+      // }
     ]
   },
   plugins: [
-    new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),    
+    // new Webpack.ProvidePlugin({ 
+    //   $: 'jquery', 
+    //   jQuery: 'jquery', 
+    //   'window.jQuery': 'jquery',
+    //   Popper: ['popper.js', 'default']
+    // }),    
     new MiniCssExtractPlugin({ filename: '../css/app.css' }),
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
   ]
