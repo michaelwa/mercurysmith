@@ -1,20 +1,15 @@
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-
     <div class="container">
-
         <!-- Navbar brand -->
         <a class="navbar-brand" href="#">Mercury Smith</a>
-
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
             aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="basicExampleNav">
-
             <!-- Links -->
             <ul class="navbar-nav mr-auto smooth-scroll">
                 <li class="nav-item">
@@ -28,14 +23,10 @@
                 </li>
             </ul>
             <!-- Links -->
-
             <!-- Social Icon  -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
                     <a class="nav-link">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">Create Account</a>
                 </li>
             </ul>
         </div>
@@ -48,69 +39,61 @@
 
 <!--Mask-->
 <div id="intro" class="view">
-
     <div class="mask rgba-black-strong">
-
         <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-
             <div class="row d-flex justify-content-center text-center">
-
                 <div class="col-md-12">
-
                     <!-- Heading -->
                     <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">Coffee Drinks</h2>
-
                     <!-- Divider -->
                     <hr class="hr-light">
-
                     <!-- Description -->
-                    <h4 class="white-text my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Deleniti
-                        consequuntur.</h4>
-                    <button type="button" class="btn btn-outline-white">Read more<i class="fa fa-book ml-2"></i></button>
+                    <h4 class="white-text my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntur.</h4>
 
-<div class="row">
+                    <div class="row">
 
-    <!--Card-->
-    <div class="card m-5" style="width: 22rem;">
+                        <!--Card-->
+                        <div class="card m-5" style="width: 22rem;">
 
-      <!--Card content-->
-      <div id="products" class="card-body">
-        <!--Title-->
-        <h4 class="card-title">You Want a Coffee Drink</h4>
-        <!--Text-->
-        <p class="card-text">Sign up and order your coffee. It will be ready for you to pickup.</p>
-        <a href="#" class="btn btn-primary">Create Account</a>
-      </div>
+                        <!--Card content-->
+                        <div id="products" class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title">You Want a Coffee Drink</h4>
+                            <!--Text-->
+                            <p class="card-text">Sign up and order your the beverage of you choice. It will be ready for you to pickup.</p>
+                            <a href="#" class="btn btn-primary">Create Your Account</a>
+                            <br/>
+                            <br/>
+                            <a href="#" class="">Learn More</a>
+                        </div>
 
-    </div>
-    <!--/.Card-->
+                        </div>
+                        <!--/.Card-->
 
 
-    <!--Card-->
-    <div class="card m-5" style="width: 22rem;">
+                        <!--Card-->
+                        <div class="card m-5" style="width: 22rem;">
 
-      <!--Card content-->
-      <div id="products" class="card-body">
-        <!--Title-->
-        <h4 class="card-title">You Sell Coffee Drinks</h4>
-        <!--Text-->
-        <p class="card-text">Sign up and take orders online. Value your customers time.</p>
-        <a href="#" class="btn btn-primary">Create Account</a>
-      </div>
+                        <!--Card content-->
+                        <div id="products" class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title">You Sell Coffee Drinks</h4>
+                            <!--Text-->
+                            <p class="card-text">Create your account and start taking orders online. Value your customers time.</p>
+                            <a href="#" class="btn btn-primary">Create Your Account</a>
+                            <br/>
+                            <br/>
+                            <a href="#" class="">Learn More</a>
+                        </div>
 
-    </div>
-    <!--/.Card-->
+                        </div>
+                        <!--/.Card-->
 
-</div>
+                    </div>
 
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
 <!--/.Mask-->
