@@ -14,11 +14,15 @@ defmodule AppAdmin.Location do
     field(:postalcode, :string)
 
     belongs_to(:client, AppAdmin.Client)
+    has_many(:locations, AppAdmin.LocationApp)
   end
+
+  @required_fields ~w(name lat long address1 city state postalcode)a
+  @optional_fields ~w(address2)a
 
   def changeset(location, params) do
     location
-    |> cast(params, [:name, :lat, :long, :address1, :address2, :city, :state, :postalcode])
-    |> validate_required([:name, :lat, :long, :address1, :city, :state, :postalcode])
+    |> cast(params, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
   end
 end

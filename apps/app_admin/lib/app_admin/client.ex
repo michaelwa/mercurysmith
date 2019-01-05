@@ -9,9 +9,12 @@ defmodule AppAdmin.Client do
     has_many(:locations, AppAdmin.Location)
   end
 
+  @required_fields ~w(name)a
+  @optional_fields ~w()
+
   def changeset(client, params) do
     client
-    |> cast(params, [:name])
-    |> validate_required([:name])
+    |> cast(params, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
   end
 end

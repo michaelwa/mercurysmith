@@ -54,7 +54,7 @@ defmodule AppAdminUserTest do
         changeset = User.changeset(%User{}, params)
         refute changeset.valid?        
 
-        params = %{ first_name: "asdf", last_name: "asdf", email: "asdf@asdf.com", phone_number: "+120612b4567"}
+        params = %{ first_name: "asdf", last_name: "asdf", email: "asdf@asdf.com", phone_number: "+12061234567"}
         changeset = User.changeset(%User{}, params)
         refute changeset.valid?        
     end

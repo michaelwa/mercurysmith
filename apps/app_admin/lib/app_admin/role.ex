@@ -9,10 +9,13 @@ defmodule AppAdmin.Role do
     belongs_to(:app, AppAdmin.App)
   end
 
+  @required_fields ~w(name)a
+  @optional_fields ~w()
+
   def changeset(role, params) do
     role
-    |> cast(params, [:name])
-    |> validate_required([:name])
+    |> cast(params, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
     |> assoc_constraint(:app)
   end
 end

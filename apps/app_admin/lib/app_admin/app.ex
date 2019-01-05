@@ -7,11 +7,15 @@ defmodule AppAdmin.App do
     timestamps()
 
     has_many(:roles, AppAdmin.Role)
+    has_many(:locations, AppAdmin.LocationApp)
   end
+
+  @required_fields ~w(name)a
+  @optional_fields ~w()a
 
   def changeset(app, params) do
     app
-    |> cast(params, [:name])
-    |> validate_required([:name])
+    |> cast(params, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
   end
 end
