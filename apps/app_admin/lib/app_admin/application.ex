@@ -8,6 +8,9 @@ defmodule AppAdmin.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
+      # Start the Ecto repository
+      AppAdmin.Repo
+
       # Starts a worker by calling: AppAdmin.Worker.start_link(arg)
       # {AppAdmin.Worker, arg},
     ]

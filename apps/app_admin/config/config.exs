@@ -12,7 +12,7 @@ use Mix.Config
 #
 #     config :app_admin, key: :value
 #
-# and access this configuration in your application as:
+# and access this configuratiton in your application as:
 #
 #     Application.get_env(:app_admin, :key)
 #
@@ -28,3 +28,12 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env()}.exs"
+
+config :app_admin,
+  ecto_repos: [AppAdmin.Repo]
+
+config :app_admin, AppAdmin.Repo,
+  database: "app_admin_repo",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost"
