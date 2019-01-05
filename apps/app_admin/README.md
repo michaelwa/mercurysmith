@@ -19,3 +19,8 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/app_admin](https://hexdocs.pm/app_admin).
 
+alias AppAdmin.User
+params = %{ first_name: "Michael", last_name: "Johnson", email: "michael.a.johnson.wa@gmail.com", phone_number: "+12067554265"}
+changeset = User.changeset(%User{}, params)
+Ecto.Changeset.apply_changes(changeset)
+

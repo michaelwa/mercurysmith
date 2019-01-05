@@ -14,7 +14,7 @@ defmodule AppAdmin.Client do
 
   def changeset(client, params) do
     client
-    |> cast(params, @required_fields ++ @optional_fields)
+    |> cast(params, @required_fields, @optional_fields)
     |> validate_required(@required_fields)
   end
 end

@@ -28,7 +28,7 @@ defmodule AppAdmin.MixProject do
     [
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
-      { :uuid, "~> 1.1" }
+      {:uuid, "~> 1.1"}
     ]
   end
 end

@@ -14,7 +14,7 @@ defmodule AppAdmin.Role do
 
   def changeset(role, params) do
     role
-    |> cast(params, @required_fields ++ @optional_fields)
+    |> cast(params, @required_fields, @optional_fields)
     |> validate_required(@required_fields)
     |> assoc_constraint(:app)
   end

@@ -22,7 +22,7 @@ defmodule AppAdmin.Location do
 
   def changeset(location, params) do
     location
-    |> cast(params, @required_fields ++ @optional_fields)
+    |> cast(params, @required_fields, @optional_fields)
     |> validate_required(@required_fields)
   end
 end

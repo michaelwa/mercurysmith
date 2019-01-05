@@ -15,7 +15,7 @@ defmodule AppAdmin.App do
 
   def changeset(app, params) do
     app
-    |> cast(params, @required_fields ++ @optional_fields)
+    |> cast(params, @required_fields, @optional_fields)
     |> validate_required(@required_fields)
   end
 end
