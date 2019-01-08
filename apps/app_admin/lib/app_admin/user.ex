@@ -2,15 +2,15 @@ defmodule AppAdmin.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @primary_key {:id, :binary_id, autogenerate: true}
-  @foreign_key_type :binary_id
-
   schema "users" do
+    field(:user_id, Ecto.UUID)
     field(:first_name, :string)
     field(:last_name, :string)
     field(:middle_name, :string)
     field(:email, :string)
     field(:phone_number, :string)
+
+    timestamps()
   end
 
   @required_fields ~w(first_name last_name email phone_number)a
@@ -22,7 +22,7 @@ defmodule AppAdmin.User do
     |> validate_required(@required_fields)
     |> validate_email(:email)
     |> validate_phone(:phone_number)
-    |> put_uuid
+    |> put_uuid(:user_id)
   end
 
   # https://gist.github.com/daemonfire300/b6705a9ce103a8bf3f70c755350ac683
@@ -42,17 +42,17 @@ defmodule AppAdmin.User do
     |> validate_format(field, @phone_regex)
   end
 
-  defp put_uuid(changeset) do
+  defp put_uuid(changeset, key) do
     if Map.has_key?(changeset, :id) do
-      {:ok, id} = Map.fetch(changeset, :id)
-
-      if id == nil do
-        Ecto.Changeset.put_change(changeset, :id, Ecto.UUID.generate())
-      else
-        changeset
-      end
+        {:ok, id} = Map.fetch(changeset, :id)
+        
+        if id == nil do
+            Ecto.Changeset.put_change(changeset, key, Ecto.UUID.generate())
+        else
+            changeset
+        end
     else
-      Ecto.Changeset.put_change(changeset, :id, Ecto.UUID.generate())
+        Ecto.Changeset.put_change(changeset, key, Ecto.UUID.generate())
     end
   end
 end

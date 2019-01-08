@@ -14,7 +14,7 @@ defmodule AppAdmin.Location do
     field(:postalcode, :string)
 
     belongs_to(:client, AppAdmin.Client)
-    has_many(:locations, AppAdmin.LocationApp)
+    has_many(:locations_apps, AppAdmin.LocationsApp)
   end
 
   @required_fields ~w(name lat long address1 city state postalcode)a

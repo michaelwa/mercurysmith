@@ -6,7 +6,7 @@ defmodule AppAdmin.Role do
     field(:name, :string)
     timestamps()
 
-    belongs_to(:app, AppAdmin.App)
+    belongs_to(:card_app, AppAdmin.CardApp)
   end
 
   @required_fields ~w(name)a
@@ -16,6 +16,6 @@ defmodule AppAdmin.Role do
     role
     |> cast(params, @required_fields, @optional_fields)
     |> validate_required(@required_fields)
-    |> assoc_constraint(:app)
+    |> assoc_constraint(:card_app)
   end
 end
