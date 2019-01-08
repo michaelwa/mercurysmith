@@ -26,15 +26,13 @@ mix Ecto.gen.migration create_app_schema
 # iex stuff
 Ecto.UUID.generate()
 
-# already has an id
-alias AppAdmin.User
-changeset = User.changeset(%User{ id: "a64603c7-2c2e-4827-981a-d3d69f06071f", first_name: "Michael", last_name: "Johnson", email: "michael.a.johnson.wa@gmail.com", phone_number: "+12067554265"}, %{})
-
 alias AppAdmin.{User, Repo}
 import Ecto.Query, only: [from: 2]
 
+# user 
+
 params = %{ first_name: "Michael", last_name: "Johnson", email: "michael.a.johnson.wa@gmail.com", phone_number: "+12067554265"}
-changeset = User.changeset(%User{}, params)
+changeset = User.new(%User{}, params)
 
 Repo.insert(changeset, prefix: :app)
 
@@ -44,7 +42,18 @@ query = from t in "users", prefix: "app", where: t.user_id == ^'a64603c7-2c2e-48
 query = from t in "users", prefix: "app", where: t.user_id == ^user_id, select: [t.id, t.user_id, t.first_name, t.last_name, t.middle_name, t.email, t.phone_number]
 Repo.all(query)
 
+query = from t in "users", prefix: "app", where: t.user_id == ^'a64603c7-2c2e-4827-981a-d3d69f06071f', select: [t.id, t.first_name, t.last_name, t.middle_name, t.email, t.phone_number]
+
 q = from User, prefix: "app", where: [user_id: ^user_id]
 Repo.all(q)
+ 
+# card_app
+alias AppAdmin.{CardApp, Repo}
+import Ecto.Query, only: [from: 2]
 
+params = %{ name: "asdf" }
+changeset = CardApp.new(%CardApp{}, params)
+Repo.insert(changeset, prefix: :app)
 
+query = from CardApp, prefix: "app"
+Repo.all(query)

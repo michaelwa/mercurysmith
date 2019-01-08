@@ -3,11 +3,10 @@ defmodule AppAdmin.CardApp do
   import Ecto.Changeset
 
   schema "card_apps" do
+    field(:card_app_id, Ecto.UUID)
     field(:name, :string)
-    timestamps()
 
-    has_many(:roles, AppAdmin.Role)
-    has_many(:location_apps, AppAdmin.LocationApp)
+    timestamps()
   end
 
   @required_fields ~w(name)a
@@ -17,5 +16,12 @@ defmodule AppAdmin.CardApp do
     card_app
     |> cast(params, @required_fields, @optional_fields)
     |> validate_required(@required_fields)
+  end
+
+  def new(card_app, params) do
+    card_app
+    |> cast(params, @required_fields, @optional_fields)
+    |> validate_required(@required_fields)
+    |> Ecto.Changeset.put_change(:card_app_id, Ecto.UUID.generate())
   end
 end
