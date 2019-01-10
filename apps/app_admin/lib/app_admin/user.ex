@@ -13,12 +13,12 @@ defmodule AppAdmin.User do
     timestamps()
   end
 
-  @required_fields ~w(first_name last_name email phone_number)a
+  @required_fields ~w(user_id first_name last_name email phone_number)a
   @optional_fields ~w(middle_name)a
 
   def changeset(user, params) do
     user
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
     |> validate_email(:email)
     |> validate_phone(:phone_number)
@@ -26,11 +26,8 @@ defmodule AppAdmin.User do
 
   def new(user, params) do
     user
-    |> cast(params, @required_fields, @optional_fields)
-    |> validate_required(@required_fields)
-    |> validate_email(:email)
-    |> validate_phone(:phone_number)
-    |> Ecto.Changeset.put_change(:user_id, Ecto.UUID.generate())
+    |> change(%{user_id: Ecto.UUID.generate()})
+    |> changeset(params)
   end
 
   # https://gist.github.com/daemonfire300/b6705a9ce103a8bf3f70c755350ac683
@@ -48,19 +45,5 @@ defmodule AppAdmin.User do
   defp validate_phone(changeset, field) do
     changeset
     |> validate_format(field, @phone_regex)
-  end
-
-  defp put_uuid(changeset, key) do
-    if Map.has_key?(changeset, :id) do
-      {:ok, id} = Map.fetch(changeset, :id)
-
-      if id == nil do
-        Ecto.Changeset.put_change(changeset, key, Ecto.UUID.generate())
-      else
-        changeset
-      end
-    else
-      Ecto.Changeset.put_change(changeset, key, Ecto.UUID.generate())
-    end
   end
 end

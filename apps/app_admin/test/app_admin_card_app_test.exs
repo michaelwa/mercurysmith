@@ -4,12 +4,12 @@ defmodule AppAdminCardAppTest do
   alias AppAdmin.CardApp
 
   test "valid with name" do
-    changeset = CardApp.changeset(%CardApp{}, %{name: "asdf"})
+    changeset = CardApp.new(%CardApp{}, %{name: "asdf"})
     assert changeset.valid?
   end
 
   test "invalid without name" do
-    changeset = CardApp.changeset(%CardApp{}, %{})
+    changeset = CardApp.new(%CardApp{}, %{})
     refute changeset.valid?
   end
 end

@@ -9,7 +9,7 @@ defmodule AppAdmin.CardApp do
     timestamps()
   end
 
-  @required_fields ~w(name)a
+  @required_fields ~w(card_app_id name)a
   @optional_fields ~w()a
 
   def changeset(card_app, params) do
@@ -20,8 +20,7 @@ defmodule AppAdmin.CardApp do
 
   def new(card_app, params) do
     card_app
-    |> cast(params, @required_fields, @optional_fields)
-    |> validate_required(@required_fields)
-    |> Ecto.Changeset.put_change(:card_app_id, Ecto.UUID.generate())
+    |> change(%{card_app_id: Ecto.UUID.generate()})
+    |> changeset(params)
   end
 end
